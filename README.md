@@ -10,4 +10,4 @@ Se utilizó lo siguiente:
 - Bootstrap 4
 
 ![Imagen del Home](../master/imgGithub/imgHome.png)
-![Imagen del Listado](../master/imgGithub/imgHome.png)
+![Imagen del Listado](../master/imgGithub/imgListado.png)
