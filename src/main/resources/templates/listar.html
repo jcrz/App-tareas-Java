@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title> Listado de Tareas </title>
+	<!-- Componentes CSS -->
+	<link rel="stylesheet" th:href="@{/home.css}">
+	<link rel="stylesheet" th:href="@{/footer.css}">
+	<!-- Bootstrp core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+	<header th:insert="fragment/menu :: menu-principal"></header>
+	
+	<div class="container text-center my-4">
+		<h1>Lista de Tareas</h1>
+		<p>Aquí podrás encontrar todas tus tareas por realizar, completalas y marcalas como listas!</p>
+	</div>
+	
+	<div class="main">
+	<hr>
+	<a th:href="@{/}" class="my-2">Agregar Nuevo ></a>
+		<div th:each="tarea : ${tareas}" class="my-1">
+			<div class="card">
+			 	<h5 class="card-header" th:text="${tarea.titulo}"></h5>
+			  	<div class="card-body">
+			    	<p class="card-text" th:text="${tarea.descripcion}"></p>
+			    	<a th:href="@{/eliminar/{id} (id=${tarea.id}) }" class="btn btn-success btn-sm">Listo</a>
+			    	<a th:href="@{/editar/{id} (id=${tarea.id}) }" class="btn btn-primary btn-sm">Editar</a>
+			  	</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<footer th:insert="fragment/footer :: pie-pagina"></footer>
+	
+	
+	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

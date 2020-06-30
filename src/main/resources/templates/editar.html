@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO APP - Aplicación de tareas</title>
+	<!-- Componentes CSS -->
+	<link rel="stylesheet" th:href="@{/home.css}">
+	<link rel="stylesheet" th:href="@{/footer.css}">
+	<!-- Bootstrp core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+	<header th:insert="fragment/menu :: menu-principal"></header>
+	
+	
+	<div class="container-md my-4 text-center">
+		<h1>Editar tarea</h1>
+	</div>
+	
+	<div class="main rounded border p-4">
+		<form th:action="@{/update}" th:object="${todo}" method="post">
+		 	<div class="form-group">
+		    	<label for="titulo">Titulo</label>
+		    	<input type="text" th:field="*{titulo}" class="form-control" name="titulo">
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="descripcion">Descripción</label>
+		    	<textarea class="form-control" th:field="*{descripcion}" name="descripcion"></textarea>
+		  	</div>
+		  	<input type="hidden" th:field="*{id}">
+		  	<button type="submit" class="btn btn-primary">Actualizar</button>
+		</form>
+	</div>
+
+
+	<footer th:insert="fragment/footer :: pie-pagina"></footer>
+
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+</body>
+</html>
